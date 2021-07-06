@@ -7,51 +7,51 @@ import pandas as pd
 import numpy as np
 
 
-## Run Tasks and Collect Performance Data #
-#
-## holds set of algo objects
-#algoSet = []
-#
-## holds set of mab objects
-#mabSet = []
-#
-## intermediate object to hold lists of algo performance results
-#data = []
-#
-## intermediate object to hold a pandas series of algo performance results on each mab
-#d = {}
-#
-## holds mab labels for resulting data frame - 'mab1', 'mab2', etc.
-#rowLabels = [] 
-#
-## resulting pandas data frame to hold all algo performances on each mab
-#resultsDf = pd.DataFrame(d) 
-#
-#
-## instantiate 32 algo objects
-#for i in range(32):
-#	algoSet.append(testFunctions.createAlgo('algo' + str(i + 1) + '.txt'))
-#	
-## instantiate 20 mab objects
-#for i in range(20):
-#	mabSet.append(testFunctions.createMab('mab' + str(i + 1) + '.txt'))
-#	rowLabels.append('mab' + str(i + 1))
-#
-## run each algo object on each mab and store performance results by first creating a series labelled by the mab and then keying to the results data frame
-#for i in range(len(algoSet)):
-#	data = []
-#	for j in range(len(mabSet)):
-#		results = testFunctions.runTask(algoSet[i], mabSet[j], 256, 100)
-#		data.append(results)
-#	d = pd.Series(data, rowLabels)
-#	resultsDf['algo' + str(i + 1)] = d
-#	print('algo' + str(i + 1) + 'complete.')
-#
-## transpose table for analysis
-#resultsDf = resultsDf.transpose()
-#
-## save data frame
-#resultsDf.to_pickle('real_pickled_results.csv')
+# Run Tasks and Collect Performance Data #
+
+# holds set of algo objects
+algoSet = []
+
+# holds set of mab objects
+mabSet = []
+
+# intermediate object to hold lists of algo performance results
+data = []
+
+# intermediate object to hold a pandas series of algo performance results on each mab
+d = {}
+
+# holds mab labels for resulting data frame - 'mab1', 'mab2', etc.
+rowLabels = [] 
+
+# resulting pandas data frame to hold all algo performances on each mab
+resultsDf = pd.DataFrame(d) 
+
+
+# instantiate 32 algo objects
+for i in range(32):
+	algoSet.append(testFunctions.createAlgo('algo' + str(i + 1) + '.txt'))
+	
+# instantiate 20 mab objects
+for i in range(20):
+	mabSet.append(testFunctions.createMab('mab' + str(i + 1) + '.txt'))
+	rowLabels.append('mab' + str(i + 1))
+
+# run each algo object on each mab and store performance results by first creating a series labelled by the mab and then keying to the results data frame
+for i in range(len(algoSet)):
+	data = []
+	for j in range(len(mabSet)):
+		results = testFunctions.runTask(algoSet[i], mabSet[j], 256, 100)
+		data.append(results)
+	d = pd.Series(data, rowLabels)
+	resultsDf['algo' + str(i + 1)] = d
+	print('algo' + str(i + 1) + 'complete.')
+
+# transpose table for analysis
+resultsDf = resultsDf.transpose()
+
+# save data frame
+resultsDf.to_pickle('real_pickled_results.csv')
 
 
 # Run Cohort Group Analysis and Collect Significant Differences in Performance #
