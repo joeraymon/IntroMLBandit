@@ -1,0 +1,75 @@
+RESULTS
+
+Algo Cohort A varied memory depth across four different groupings of statistics method and decision policy. Results
+show that Groups 1 and 3 - Puremax groups - showed very minor significant differences in performance and no significant
+differences in decision consistency while Groups 2 and 4 - Softmax groups - showed a larger amount of significant differences
+in performance in the range of 25% of tasks and around 15% for decision consistency.
+
+Algo Cohort B varied statistics method across 16 different groupings of memory depth and decision policy. Results show that
+statistics method had little to no impact on performance with only 5% of results had significant differences across all groups
+and no impact on decision consistency.
+
+Algo Cohort C varied decision policy across 16 different groupings of memory depth and statistics method. Results show
+that decision policy did have a large impact on performance and decision consistency across groups. Each group showed
+significant differences in task performance of at least 65% with earlier groups - smaller memory - showing significant
+differences in the range of 80%-90%. Each group also showed significant differences in decision consistency in 100% of
+all tasks.
+
+Mab Cohort A varied the outcome structure between a reinforcement arm and a punishment arm between four groups. Each
+group was compared against a neutral-neutral control group and each showed significant differences in absolute score in
+100% of tasks. Groups 1 and 3 - reinforcement arm - showed significant differences in regret in 100% of tasks while groups
+2 and 4 - punishment arm - showed significant differences in 50% of tasks. Each group showed about 50% of tasks had
+significant differences in decision consistency.
+
+Mab Cohort B varied the sensitivity of outcomes between two groups. Each group showed significant differences in absolute
+score across 100% of tasks. Group 1 - punishment arm - showed significant differences in regret across 100% of tasks while
+Group 2 - reinforcement arm - showed significant differences in regret across 50% of tasks. Both groups showed about 40%
+of tasks with significant differences in decision consistency.
+
+Mab Cohort C varied the number of arms while maintaining the reward structure within groups. Group 1 increased the variance
+in outcome structure as it added an arm while group 2 decreased the variance in outcome structure with each added arm. Group
+1 showed significant differences in absolute score in 80% of tasks and significant differences in regret in 99% of tasks.
+Group 2 showed 20% of tasks with significant differences for absolute score and for regret. Both groups showed significant
+differences in decision consistency in 50% of tasks.
+
+Mab Cohort D varied the jump frequency of the task while maintaining the outcome structure within groups. Group 1 had a
+reinforcement-punishment structure while Group 2 had four arms with sensitivity changes to the added arms. Group 1 showed
+significant differences in absolute score in about 40% of tasks, significant differences in regret in about 45% of tasks,
+significant differences in decision consistency in about 38% of tasks. Group 2 showed significant differences in absolute
+score in about 49% of tasks, significant differences in regret in about 50% of tasks, and significant differences in
+decision consistency in about 35% of tasks.
+
+
+
+DISCUSSION
+
+I expected each variant of the algorithm design to have a significant impact on all measures of decision-making performance.
+The most obvious finding is that the method of computing expected values about arm outcomes did not have any significant
+impact on the algorithm's performance regardless of the memory depth or decision policy. Even more interesting was that
+an algorithm's memory depth also did not have a significant impact on performance when paired with a puremax decision
+policy. This leads to the only significant finding about algorithm structure which was the decision policy had a
+significant impact on performance. Not only did the decision policy affect absolute score on well over half of the
+algorithms, but it also produced significant differences in decision consistency across every single task design. This
+suggests that using a Softmax decision policy allows for more explorative behavior which gives the algorithm more information
+about its environment which, in turn, yields higher scores likely due to the fact that Softmax policy can find the optimal
+arm to exploit with much less error than the Puremax policy. A deeper investigation into this difference between decision
+policies is necessary to confirm this hypothesis.
+
+I expected to see the pairing of a reinforcement and neutral arm to have a significant impact on performance when compared
+with a neutral-neutral control task because algorithms should exploit the reinforcement arm. I also expected to see the pairing
+of a punishment and neutral arm to have no significant impact on performance when compared with the control task because algorithms
+should exploit the neutral and perform nearly as well as the control. Performance was significantly better than control for the
+reinforcement pairing, but performance was also significantly worse on the punishment pairing. This suggests that either the
+algorithms took longer to learn about outcomes when the likelihood was punishment as opposed to reinforcement or there was a
+flaw in my analysis here. A deeper investigation into why this occurred is necessary to determine whether algorithms can learn
+just as well from punishment as opposed to reinforcement.
+
+I expected algorithms to perform significantly better as decision limit increased when the outcome structure increased in variance
+(more rewarding, more punishing) compared with when the outcome structure decreased in variance (more neutral arms). Mab Cohort C
+appears to have confirmed this hypothesis, yet I was unable to distinguish whether significant differences within groups was due
+to the increased number of decisions or changes in variance. A deeper investigation into an algorithm's decision limit and its
+affect on performance is necessary to distinguish the significance between increased arms and increased variance between arms.
+
+I expected to see significant differences in performance as the jump frequency varied from 0 to 0.1. However, my analysis was
+not fit to measure this difference and the analysis that I did conduct did not result in anything informative. Further
+investigations should conduct proper analysis to determine whether algorithms can detect jump frequencies.
